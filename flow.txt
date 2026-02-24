@@ -1,0 +1,19 @@
+User Input (Channel ID)
+        ↓
+  YouTube API fetch
+        ↓
+  Local JSON cache
+        ↓
+  SQLite Database
+        ↓
+  Debug & verify anytime
+
+
+
+
+
+  🔧 Upgrade Map (for later)
+Want to addWhereNew chart sectionAdd after SECTION 4 in app.py
+New DB queryAdd to db_queries.py
+New reusable widgetAdd to ui_components.py
+Playlist analytics pageNew file pages/playlists.py
