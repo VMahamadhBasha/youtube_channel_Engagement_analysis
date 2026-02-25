@@ -1,0 +1,161 @@
+YouTube Channel Analytics Project – Explanation
+Project Overview
+
+This project is a complete YouTube analytics system built using Python.
+It fetches YouTube channel data using the YouTube Data API, stores it in a SQLite database, and displays analysis results through a Streamlit dashboard.
+
+The project is modular and follows a clean data pipeline architecture.
+
+Overall Data Flow
+
+User → Streamlit UI / CLI → YouTube API → JSON Storage → SQLite Database → SQL Queries → Dashboard
+
+Step-by-Step Working Flow
+1. User Input (UI Layer)
+
+The user enters a YouTube Channel ID.
+
+In Web Mode → through app.py (Streamlit dashboard).
+
+In CLI Mode → through main.py.
+
+2. Database Setup
+
+database.py creates a SQLite database file.
+
+It creates three main tables:
+
+channels
+
+playlists
+
+videos
+
+Tables are created only if they do not already exist (safe and reusable).
+
+3. Fetch Data from YouTube API
+
+api.py connects to the YouTube Data API using the API key from config.py.
+
+It fetches:
+
+Channel details
+
+Playlist details
+
+All videos in playlists (handles pagination)
+
+The data is cleaned and structured properly.
+
+4. Save Raw Data Locally
+
+storage.py saves the fetched data as a JSON file.
+
+The file is stored inside the local_data folder.
+
+This helps for:
+
+Backup
+
+Debugging
+
+Reusing data without calling API again
+
+5. Insert Data into Database
+
+db_insert.py reads the JSON data.
+
+It inserts the data into SQLite tables.
+
+Uses safe SQL operations like:
+
+INSERT OR REPLACE
+
+Transactions for data consistency
+
+6. Query for Analysis
+
+db_queries.py contains SQL queries for analytics.
+
+It provides:
+
+Channel statistics
+
+Top viewed videos
+
+Upload trends
+
+Filtering videos by date
+
+7. Display Results (Dashboard)
+
+app.py is the Streamlit dashboard.
+
+It shows:
+
+Channel metrics
+
+Video performance
+
+Upload trends
+
+Date filters
+
+The UI is interactive and user-friendly.
+
+Files and Responsibilities
+
+config.py → Stores API key and configuration.
+
+api.py → Fetches data from YouTube.
+
+storage.py → Saves raw JSON locally.
+
+database.py → Creates SQLite database and tables.
+
+db_insert.py → Inserts data into database.
+
+db_queries.py → Performs SQL analysis.
+
+main.py → CLI pipeline execution.
+
+app.py → Streamlit web dashboard.
+
+How to Run the Project
+CLI Mode
+
+Run:
+python main.py
+
+This will:
+
+Fetch data
+
+Save JSON
+
+Insert into database
+
+Streamlit Dashboard
+
+Run:
+streamlit run app.py
+
+Then open the browser link (localhost:8501).
+
+Key Strength of the Project
+
+Modular design
+
+Clear separation of responsibilities
+
+Database normalization
+
+Safe SQL operations
+
+Interactive analytics dashboard
+
+Scalable and easy to extend
+
+One-Line Explanation for Guide
+
+This project is a complete data pipeline that collects YouTube channel data, stores it in a structured database, and provides analytical insights through an interactive Streamlit dashboard.
