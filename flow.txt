@@ -17,3 +17,15 @@ Want to addWhereNew chart sectionAdd after SECTION 4 in app.py
 New DB queryAdd to db_queries.py
 New reusable widgetAdd to ui_components.py
 Playlist analytics pageNew file pages/playlists.py
+
+
+
+
+
+
+
+
+
+& "e:\infosys springboard 6.0\Youtube _analytics\venv\Scripts\Activate.ps1"
+
+streamlit run app.py
